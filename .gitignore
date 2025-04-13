@@ -1,0 +1,4 @@
+# Visual Studio user-specific files
+.vs/
+*.user
+*.suo
