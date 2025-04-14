@@ -25,8 +25,10 @@ namespace QuanCafe
         string[] table = { "01", "02", "03", "04" };
         List<ChiTietHoaDon> listSanPham;
 
+
         public QuanLyBan()
         {
+            listSanPham = new List<ChiTietHoaDon>();
             InitializeComponent();
             LoadTableButtons();
             LoadComboBox1();
@@ -34,6 +36,8 @@ namespace QuanCafe
             LoadComboBox3();
             LoadComboBox4();
             LoadListViewFromList();
+
+
         }
 
         private void LoadTableButtons()

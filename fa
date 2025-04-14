@@ -1,0 +1,101 @@
+[33mcommit d504b9bc1fa5b90619215d399b126533241c8612[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdeveloper[m[33m, [m[1;31morigin/developer[m[33m)[m
+Merge: 89c5190 1fcda79
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 16:50:43 2025 +0700
+
+    Merge branch 'feature/hoang', remote-tracking branch 'origin' into developer
+
+[33mcommit 1fcda795fd08c3486650ed27bfa36523876e6d6d[m[33m ([m[1;31morigin/feature/hoang[m[33m, [m[1;32mfeature/hoang[m[33m)[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 16:49:36 2025 +0700
+
+    them mon click
+
+[33mcommit df3f463627e4c9a7d9627637618b606c20055c15[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 16:33:47 2025 +0700
+
+    them mon click
+
+[33mcommit 89c5190702ac31a5a22cb22b223085d27def2113[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 16:30:02 2025 +0700
+
+    delete debug
+
+[33mcommit 5bbbe2abc1a49d55332f1f7e28a5648361994351[m
+Merge: 6b34d9b 48daa64
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 16:28:01 2025 +0700
+
+    Resolve merge conflict in DesignTimeResolveAssemblyReferencesInput.cache
+
+[33mcommit 6b34d9bb4acd38dd9d07a8057bd57d478a63d503[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 16:19:03 2025 +0700
+
+    m
+
+[33mcommit 48daa646a7dcf1b3c2ceefa3c9b317e8705eeb7f[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 16:08:48 2025 +0700
+
+    Stop tracking config folder
+
+[33mcommit c64329cfc852b62de675c5d12095be310d8876fb[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 16:07:13 2025 +0700
+
+    Stop tracking config folder
+
+[33mcommit e74f424b8bb72bed50ad9c337ef35b900c87f6f8[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 16:05:22 2025 +0700
+
+    Stop tracking config folder
+
+[33mcommit 6a8b9f6dabe5a37dc86dd130a193cf89d241a5eb[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 15:59:36 2025 +0700
+
+    gitignore fix
+
+[33mcommit 8221153a3e76a2cc0b3834804a34230f7014ac96[m
+Merge: 46e9c85 e0d0d0b 1c31288
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 13:01:46 2025 +0700
+
+    Merge branch 'feature/hoang', remote-tracking branch 'origin' into developer
+
+[33mcommit 1c31288e4fcda1855fca4a7e8db193d32aafcdfc[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 12:59:45 2025 +0700
+
+    hello
+
+[33mcommit 46e9c85f79a574b860d542d7f93dbaba96dfa376[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 12:46:57 2025 +0700
+
+    new
+
+[33mcommit e0d0d0ba3fd397ebeb98a03caf456db787ae92ca[m
+Merge: 820d174 9306889
+Author: VietLinh1104 <152302453+VietLinh1104@users.noreply.github.com>
+Date:   Mon Apr 14 03:56:31 2025 +0700
+
+    Merge pull request #1 from VietLinh1104/feature/hoang
+    
+    tesst
+
+[33mcommit 93068896847cc8382557e9ac98fe6771328d33c4[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 03:50:34 2025 +0700
+
+    tesst
+
+[33mcommit 820d1749b67acab745096a102b188f6429053a76[m
+Author: VietLinh1104 <linhtx2004@gmail.com>
+Date:   Mon Apr 14 03:36:33 2025 +0700
+
+    new
