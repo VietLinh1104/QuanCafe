@@ -111,8 +111,8 @@ namespace QuanCafe
             var (username, role, expiration) = JwtHelper.DecodeToken(token);
             if (role == "Quản lý")
             {
-                //var formTaiKhoan = new TaiKhoan();
-                //formTaiKhoan.Show();
+                var formTaiKhoan = new Forms.TaiKhoan();
+                formTaiKhoan.Show();
 
             }
             else
