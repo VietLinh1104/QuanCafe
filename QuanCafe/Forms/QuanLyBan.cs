@@ -170,26 +170,26 @@ namespace QuanCafe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //ChiTietHoaDon sanPham = new ChiTietHoaDon(0, 1, 1, 1, 30000);
-            //listSanPham.Add(sanPham);
-            //LoadListViewFromList();
+            ChiTietHoaDon sanPham = new ChiTietHoaDon(0, 1, 1, 1, 30000);
+            listSanPham.Add(sanPham);
+            LoadListViewFromList();
         }
 
         private void LoadListViewFromList()
         {
-            //listView1.Items.Clear();
-            //int stt = 1;
+            listView1.Items.Clear();
+            int stt = 1;
 
-            //foreach (var item in listSanPham)
-            //{
-            //    ListViewItem lvi = new ListViewItem(stt.ToString());
-            //    lvi.SubItems.Add(item.IdSanPham.ToString());
-            //    lvi.SubItems.Add(item.SoLuong.ToString());
-            //    lvi.SubItems.Add(item.DonGia.ToString("N0"));
+            foreach (var item in listSanPham)
+            {
+                ListViewItem lvi = new ListViewItem(stt.ToString());
+                lvi.SubItems.Add(item.IdSanPham.ToString());
+                lvi.SubItems.Add(item.SoLuong.ToString());
+                lvi.SubItems.Add(item.DonGia.ToString("N0"));
 
-            //    listView1.Items.Add(lvi);
-            //    stt++;
-            //}
+                listView1.Items.Add(lvi);
+                stt++;
+            }
         }
 
 
