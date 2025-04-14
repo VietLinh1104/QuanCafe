@@ -25,7 +25,7 @@ namespace QuanCafe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new QuanLyBan());
 
             //NhanVien nvc = new NhanVien(0, "admin", "Quản lý", "admin", "admin", "admin");
             //NhanVienService nv = new NhanVienService();

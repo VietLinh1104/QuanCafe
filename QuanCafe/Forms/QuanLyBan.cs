@@ -24,10 +24,14 @@ namespace QuanCafe
     {
         string[] table = { "01", "02", "03", "04" };
         List<ChiTietHoaDon> listSanPham;
+        DataTable sanPhamList;
 
         public QuanLyBan()
         {
             InitializeComponent();
+            listSanPham = new List<ChiTietHoaDon>(); // ⚠️ Thêm dòng này để tránh null
+            sanPhamList = new DataTable();           // Nếu muốn chắc chắn tránh lỗi với sanPhamList
+
             LoadTableButtons();
             LoadComboBox1();
             LoadComboBox2();
@@ -170,25 +174,38 @@ namespace QuanCafe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ChiTietHoaDon sanPham = new ChiTietHoaDon(0, 1, 1, 1, 30000);
+            //hiTietHoaDon( idChiTietHoaDon,  idHoaDon,  idSanPham,  soLuong,  donGia)
+            ChiTietHoaDon sanPham = new ChiTietHoaDon(22, 2, 3, 4, 5);
             listSanPham.Add(sanPham);
+            sanPhamList = DataConvertHelper.ConvertCTHDListToDataTable(listSanPham);
             LoadListViewFromList();
         }
 
         private void LoadListViewFromList()
         {
-            listView1.Items.Clear();
-            int stt = 1;
 
-            foreach (var item in listSanPham)
+            listView1.Items.Clear();
+            listView1.View = View.Details;
+            listView1.Columns.Clear();
+            listView1.FullRowSelect = true;
+            
+            listView1.Columns.Add("id", 50);
+            listView1.Columns.Add("Sản phẩm", 70);
+            listView1.Columns.Add("Số lượng", 70);
+            listView1.Columns.Add("Đơn giá", 100);
+            listView1.Columns.Add("Đơn giá", 100);
+
+            foreach (DataRow row in sanPhamList.Rows)
             {
-                ListViewItem lvi = new ListViewItem(stt.ToString());
-                lvi.SubItems.Add(item.IdSanPham.ToString());
-                lvi.SubItems.Add(item.SoLuong.ToString());
-                lvi.SubItems.Add(item.DonGia.ToString("N0"));
+                ListViewItem lvi = new ListViewItem(row[0].ToString());
+
+                lvi.SubItems.Add(row[1].ToString());
+                lvi.SubItems.Add(row[2].ToString());
+                lvi.SubItems.Add(row[3].ToString());
+                lvi.SubItems.Add(row[4].ToString());
 
                 listView1.Items.Add(lvi);
-                stt++;
+                
             }
         }
 

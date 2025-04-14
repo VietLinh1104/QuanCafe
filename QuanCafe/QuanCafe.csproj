@@ -167,6 +167,7 @@
     <Compile Include="Forms\ManagerTab\Tab\Ban.Designer.cs">
       <DependentUpon>Ban.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DataConvertHelper.cs" />
     <Compile Include="Helpers\JwtHelper.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="Helpers\ValidateHelper.cs" />
