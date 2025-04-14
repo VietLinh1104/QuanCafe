@@ -177,19 +177,19 @@ namespace QuanCafe
 
         private void LoadListViewFromList()
         {
-            //listView1.Items.Clear();
-            //int stt = 1;
+            listView1.Items.Clear();
+            int stt = 1;
 
-            //foreach (var item in listSanPham)
-            //{
-            //    ListViewItem lvi = new ListViewItem(stt.ToString());
-            //    lvi.SubItems.Add(item.IdSanPham.ToString());
-            //    lvi.SubItems.Add(item.SoLuong.ToString());
-            //    lvi.SubItems.Add(item.DonGia.ToString("N0"));
+            foreach (var item in listSanPham)
+            {
+                ListViewItem lvi = new ListViewItem(stt.ToString());
+                lvi.SubItems.Add(item.IdSanPham.ToString());
+                lvi.SubItems.Add(item.SoLuong.ToString());
+                lvi.SubItems.Add(item.DonGia.ToString("N0"));
 
-            //    listView1.Items.Add(lvi);
-            //    stt++;
-            //}
+                listView1.Items.Add(lvi);
+                stt++;
+            }
         }
 
 
