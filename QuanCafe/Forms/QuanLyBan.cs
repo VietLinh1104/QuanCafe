@@ -170,9 +170,9 @@ namespace QuanCafe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //ChiTietHoaDon sanPham = new ChiTietHoaDon(0, 1, 1, 1, 30000);
-            //listSanPham.Add(sanPham);
-            //LoadListViewFromList();
+            ChiTietHoaDon sanPham = new ChiTietHoaDon(0, 1, 1, 1, 30000);
+            listSanPham.Add(sanPham);
+            LoadListViewFromList();
         }
 
         private void LoadListViewFromList()
