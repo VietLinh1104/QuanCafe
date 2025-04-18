@@ -20,7 +20,7 @@ namespace QuanCafe.Repositories
         {
             using (SqlConnection conn = _db.GetConnection())
             {
-                string query = "SELECT * FROM DanhMucSanPham";
+                string query = "SELECT id_danh_muc, ten_danh_muc FROM DanhMucSanPham"; // Đảm bảo cột đúng
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -54,7 +54,6 @@ namespace QuanCafe.Repositories
             }
         }
 
-        //----------------------------
         public int GetNextDanhMucId()
         {
             using (SqlConnection conn = _db.GetConnection())
@@ -68,8 +67,6 @@ namespace QuanCafe.Repositories
                 }
             }
         }
-
-
 
         // Cập nhật danh mục theo ID
         public bool UpdateDanhMuc(int id, string tenDanhMuc, string moTa)
@@ -122,5 +119,8 @@ namespace QuanCafe.Repositories
                 return false;
             }
         }
+
+        //thêm 
+        
     }
 }
