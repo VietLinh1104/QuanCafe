@@ -14,6 +14,7 @@ namespace QuanCafe.Models
         private int idDanhMuc;
         private string moTa;
 
+
         public SanPham()
         {
         }
@@ -32,6 +33,7 @@ namespace QuanCafe.Models
         public double Gia { get => gia; set => gia = value; }
         public int IdDanhMuc { get => idDanhMuc; set => idDanhMuc = value; }
         public string MoTa { get => moTa; set => moTa = value; }
+
     }
 
 }
