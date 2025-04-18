@@ -48,11 +48,15 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button7);
+            this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.comboBox1);
@@ -78,11 +82,11 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(175, 388);
+            this.button4.Location = new System.Drawing.Point(12, 417);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(157, 23);
             this.button4.TabIndex = 23;
-            this.button4.Text = "Tải lại dữ liệu";
+            this.button4.Text = "Hủy";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -244,6 +248,24 @@
             this.textBox1.TabIndex = 12;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(175, 388);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(157, 23);
+            this.button6.TabIndex = 24;
+            this.button6.Text = "Ghi dữ liệu";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(175, 417);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(157, 23);
+            this.button7.TabIndex = 25;
+            this.button7.Text = "Xuất File Excel";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // TaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,5 +307,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }
