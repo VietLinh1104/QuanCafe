@@ -167,7 +167,6 @@
     <Compile Include="Forms\ManagerTab\Tab\Ban.Designer.cs">
       <DependentUpon>Ban.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\DataConvertHelper.cs" />
     <Compile Include="Helpers\JwtHelper.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="Helpers\ValidateHelper.cs" />
@@ -181,11 +180,7 @@
     <Compile Include="Models\Session.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\BanService.cs" />
-    <Compile Include="Services\ChiTietHoaDonService.cs" />
     <Compile Include="Services\DanhMucService.cs" />
-    <Compile Include="Services\HoaDonService.cs" />
-    <Compile Include="Services\KhachHangService.cs" />
     <Compile Include="Services\NhanVienService.cs" />
     <Compile Include="Services\SanPhamService.cs" />
     <EmbeddedResource Include="Forms\TaiKhoan.resx">
