@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanCafe.Helpers;
 using QuanCafe.Models;
-using QuanCafe.Services;
+using QuanCafe.Repositories;
 
 namespace QuanCafe.Forms
 {
@@ -43,8 +43,8 @@ namespace QuanCafe.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            NhanVienService nhanVienService = new NhanVienService();
-            string genToken = nhanVienService.Login(textBox1.Text, textBox2.Text);
+            NhanVienRepository repo = new NhanVienRepository();
+            string genToken = repo.Login(textBox1.Text, textBox2.Text);
             Session.JwtToken = genToken;
             string token = Session.JwtToken;
 

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanCafe.Models;
-using QuanCafe.Services;
+using QuanCafe.Repositories;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using QuanCafe.Helpers;
@@ -18,7 +18,7 @@ namespace QuanCafe.Forms
     public partial class TaiKhoan : Form
     {
         private int dataSelected;
-        NhanVienService nhanVienService = new NhanVienService();
+        NhanVienRepository repository = new NhanVienRepository();
         public TaiKhoan()
         {
             
@@ -32,7 +32,7 @@ namespace QuanCafe.Forms
         {
             try
             {
-                DataTable dt = nhanVienService.GetAll();
+                DataTable dt = repository.GetAll();
 
                 listView1.Items.Clear();
                 listView1.View = View.Details;
@@ -117,7 +117,7 @@ namespace QuanCafe.Forms
                 return;
             }
 
-            var (emailExists, phoneExists) = nhanVienService.CheckEmailAndPhone(email, soDienThoai);
+            var (emailExists, phoneExists) = repository.CheckEmailAndPhone(email, soDienThoai);
 
             if (emailExists || phoneExists)
             {
@@ -129,7 +129,7 @@ namespace QuanCafe.Forms
             }
 
             NhanVien nv = new NhanVien(0, tenNhanVien, chucVu, soDienThoai, email, password);
-            nhanVienService.Register(nv);
+            repository.Register(nv);
             MessageBox.Show("Thêm tài khoản thành công");
             Load_List();
         }
@@ -147,7 +147,7 @@ namespace QuanCafe.Forms
             if (confirmResult == DialogResult.Yes)
             {
                 // Thực hiện xóa ở đây
-                nhanVienService.DeleteById(dataSelected);
+                repository.DeleteById(dataSelected);
                 Load_List();
             }
 
@@ -183,7 +183,7 @@ namespace QuanCafe.Forms
 
             // Gọi hàm UpdateWithoutPassword
             NhanVien nv = new NhanVien(dataSelected, tenNhanVien, chucVu, soDienThoai, email, password: "");
-            bool updated = nhanVienService.UpdateWithoutPassword(nv);
+            bool updated = repository.UpdateWithoutPassword(nv);
 
             if (updated)
             {
@@ -272,8 +272,8 @@ namespace QuanCafe.Forms
                 return;
             }
 
-            // Gọi phương thức tìm kiếm trong nhanVienService
-            DataTable result = nhanVienService.SearchNhanVien(keyword);
+            // Gọi phương thức tìm kiếm trong repository
+            DataTable result = repository.SearchNhanVien(keyword);
 
             // Cập nhật lại danh sách nhân viên
             listView1.Items.Clear();

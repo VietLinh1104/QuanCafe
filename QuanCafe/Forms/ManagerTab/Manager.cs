@@ -17,6 +17,7 @@ namespace QuanCafe.Forms
         {
             InitializeComponent();
             LoadTabs();
+            
         }
 
         private void LoadTabs()
@@ -43,6 +44,17 @@ namespace QuanCafe.Forms
             banTab.Dock = DockStyle.Fill;
             tabPage5.Controls.Add(taiKhoanTab);
             tabPage5.Text = "Tài Khoản";
+
+            // Khởi tạo Thống Kê trước, rồi truyền vào Doanh Thu
+            var thongKeTab = new ThongKe();
+            thongKeTab.Dock = DockStyle.Fill;
+            tabPage6.Controls.Add(thongKeTab);
+            tabPage6.Text = "Thống Kê";
+
+            var doanhThuTab = new DoanhThu(thongKeTab); // truyền tab thống kê vào
+            doanhThuTab.Dock = DockStyle.Fill;
+            tabPage1.Controls.Add(doanhThuTab);
+            tabPage1.Text = "Doanh Thu";
         }
 
         private void Manager_Load(object sender, EventArgs e)
@@ -61,6 +73,16 @@ namespace QuanCafe.Forms
         }
 
         private void Manager_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click_1(object sender, EventArgs e)
         {
 
         }

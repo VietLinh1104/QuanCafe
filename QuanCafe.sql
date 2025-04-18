@@ -59,6 +59,7 @@ CREATE TABLE HoaDon (
     id_khach_hang INT,
     thoi_gian DATETIME NOT NULL DEFAULT GETDATE(),
     trang_thai INT NOT NULL DEFAULT 0, -- 1: đã thanh toán || 0: chưa thanh toán
+    tong_tien DECIMAL(18,2) DEFAULT 0,
 
     CONSTRAINT FK_HoaDon_Ban FOREIGN KEY (id_ban) REFERENCES Ban(id_ban),
     CONSTRAINT FK_HoaDon_NhanVien FOREIGN KEY (id_nhan_vien) REFERENCES NhanVien(id_nhan_vien),
@@ -115,14 +116,14 @@ INSERT INTO SanPham (ten_san_pham, gia, id_danh_muc, mo_ta) VALUES
 (N'Bánh mousse dâu', 40000, 4, N'Bánh mềm vị dâu');
 
 -- Hóa đơn
-INSERT INTO HoaDon (id_ban, id_nhan_vien, id_khach_hang, trang_thai)
-VALUES (1, 1, 1, 0);
+INSERT INTO HoaDon (id_ban, id_nhan_vien, id_khach_hang, trang_thai, tong_tien)
+VALUES (1, 1, 1, 0, 75000);
 
 -- Chi tiết hóa đơn
 INSERT INTO ChiTietHoaDon (id_hoa_don, id_san_pham, so_luong, don_gia) VALUES 
-(1, 1, 1, 20000), -- Cà phê đen
-(1, 3, 1, 30000), -- Trà sữa
-(1, 5, 1, 25000); -- Bánh mousse dâu
+(2, 1, 1, 20000), -- Cà phê đen
+(2, 3, 1, 30000), -- Trà sữa
+(2, 5, 1, 25000); -- Bánh mousse dâu
 
 
 SELECT * FROM DanhMucSanPham;
@@ -130,5 +131,64 @@ SELECT * FROM Ban;
 SELECT * FROM NhanVien;
 SELECT * FROM KhachHang;
 SELECT * FROM SanPham;
+SELECT * FROM DanhMucSanPham;
+
 SELECT * FROM HoaDon;
 SELECT * FROM ChiTietHoaDon;
+
+delete from NhanVien where id_nhan_vien = 4;
+//----------------------------------------------------------------------------------------------
+CREATE PROCEDURE sp_DoanhThuTheoNgay
+    @Ngay DATE
+AS
+BEGIN
+    SELECT 
+        h.id_hoa_don,
+        h.thoi_gian,
+        h.tong_tien,
+        nv.ten_nhan_vien,
+        kh.ten_khach_hang
+    FROM HoaDon h
+    LEFT JOIN NhanVien nv ON h.id_nhan_vien = nv.id_nhan_vien
+    LEFT JOIN KhachHang kh ON h.id_khach_hang = kh.id_khach_hang
+    WHERE CONVERT(DATE, h.thoi_gian) = @Ngay AND h.trang_thai = 1;
+END
+
+EXEC sp_DoanhThuTheoNgay '2025-04-13';
+
+CREATE VIEW DoanhThuTheoNgay AS
+SELECT 
+    CONVERT(DATE, thoi_gian) AS Ngay,
+    SUM(tong_tien) AS TongDoanhThu,
+    COUNT(*) AS SoHoaDon
+FROM HoaDon
+WHERE trang_thai = 1 -- chỉ tính những hóa đơn đã thanh toán
+GROUP BY CONVERT(DATE, thoi_gian);
+
+SELECT * FROM DoanhThuTheoNgay;  
+DROP VIEW IF EXISTS DoanhThuTheoNgay;
+DROP VIEW IF EXISTS DoanhThuTheoThang;
+DROP PROCEDURE IF EXISTS sp_DoanhThuTheoNgay;
+
+
+SELECT * 
+FROM HoaDon
+WHERE trang_thai = 1 
+  AND thoi_gian BETWEEN '2025-04-13' AND '2025-04-15';
+
+UPDATE HoaDon
+SET trang_thai = 1
+WHERE id_hoa_don IN (1, 2);
+
+
+INSERT INTO DanhMucSanPham (ten_danh_muc, mo_ta) VALUES 
+(N'Cà phê', N'Các loại cà phê như đen, sữa, espresso'),
+(N'Trà sữa', N'Trà sữa các vị, thêm topping trân châu, pudding'),
+(N'Đá xay', N'Sinh tố đá xay mát lạnh'),
+(N'Nước ép', N'Nước ép trái cây nguyên chất, không đường'),
+(N'Sinh tố', N'Sinh tố xoài, dâu, bơ, chuối...'),
+(N'Bánh ngọt', N'Bánh bông lan, mousse, tiramisu...'),
+(N'Tráng miệng', N'Rau câu, flan, pudding'),
+(N'Nước suối', N'Lavie, Aquafina, Dasani...'),
+(N'Trà nóng', N'Trà gừng, trà đào, trà sen'),
+(N'Sữa chua', N'Sữa chua dẻo, mít, nếp cẩm');

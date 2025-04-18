@@ -2,3 +2,6 @@
 .vs/
 *.user
 *.suo
+obj/
+bin/
+Configs/

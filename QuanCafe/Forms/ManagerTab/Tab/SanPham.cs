@@ -9,19 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-using QuanCafe.Services;
+using QuanCafe.Repositories;
 
 
 namespace QuanCafe.Forms.ManagerTab.Tab
 {
     public partial class SanPham : UserControl
     {
-        private readonly SanPhamService sanPhamService;
+        private SanPhamRepository _repository;
 
         public SanPham()
         {
             InitializeComponent();
-            sanPhamService = new SanPhamService();
+            _repository = new SanPhamRepository();
             LoadData();
         }
 
@@ -29,7 +29,7 @@ namespace QuanCafe.Forms.ManagerTab.Tab
         {
             try
             {
-                DataTable dt = sanPhamService.GetAllSanPham();
+                DataTable dt = _repository.GetAllSanPham();
 
                 listView1.Items.Clear();
                 listView1.View = View.Details;

@@ -9,9 +9,9 @@ using System.Data;
 using System.Windows.Forms;
 using QuanCafe.Helpers;
 
-namespace QuanCafe.Services
+namespace QuanCafe.Repositories
 {
-    public class NhanVienService
+    public class NhanVienRepository
     {
         private readonly ConnectDB db = new ConnectDB();
 

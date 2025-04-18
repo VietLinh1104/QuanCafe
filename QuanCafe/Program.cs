@@ -8,8 +8,7 @@ using System.Windows.Forms;
 using QuanCafe.Forms;
 using QuanCafe.Helpers;
 using QuanCafe.Models;
-using QuanCafe.Services;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using QuanCafe.Repositories;
 
 namespace QuanCafe
 {
@@ -27,9 +26,6 @@ namespace QuanCafe
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new QuanLyBan());
 
-            //NhanVien nvc = new NhanVien(0, "admin", "Quản lý", "admin", "admin", "admin");
-            //NhanVienService nv = new NhanVienService();
-            //nv.Register(nvc);
         }
     }
 }

@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using QuanCafe.Data;
 
-namespace QuanCafe.Services
+namespace QuanCafe.Repositories
 {
-    public class SanPhamService
+    public class SanPhamRepository
     {
         private readonly ConnectDB _db;
 
-        public SanPhamService()
+        public SanPhamRepository()
         {
             _db = new ConnectDB();
         }
