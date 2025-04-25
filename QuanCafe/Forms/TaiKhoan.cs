@@ -292,5 +292,19 @@ namespace QuanCafe.Forms
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DataTable danhSachNhanVien = nhanVienService.GetAll();
+            if (danhSachNhanVien != null && danhSachNhanVien.Rows.Count > 0)
+            {
+
+                ExportHelper.ExportExcel(danhSachNhanVien, "danhSachNhanVien", "danhSachNhanVien.xlsx");
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

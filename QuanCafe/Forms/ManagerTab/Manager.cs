@@ -34,15 +34,25 @@ namespace QuanCafe.Forms
             //var doanhThuTab = new DoanhThu();
             //banTab.Dock = DockStyle.Fill;
 
-            var sanPhamTab = new SanPham();
+            var sanPhamTab = new SanPhamForm();
             banTab.Dock = DockStyle.Fill;
             tabPage4.Controls.Add(sanPhamTab);
             tabPage4.Text = "Sản Phẩm";
 
-            var taiKhoanTab = new ManagerTab.Tab.TaiKhoan();
+            var taiKhoanTab = new ManagerTab.Tab.KhachHang();
             banTab.Dock = DockStyle.Fill;
             tabPage5.Controls.Add(taiKhoanTab);
-            tabPage5.Text = "Tài Khoản";
+            tabPage5.Text = "Khách Hàng";
+
+            var doanhThuTab = new ManagerTab.Tab.DoanhThu();
+            banTab.Dock = DockStyle.Fill;
+            tabPage6.Controls.Add(doanhThuTab);
+            tabPage6.Text = "Lịch sử hóa đơn";
+
+            var KhachHangThanThietTab = new ManagerTab.Tab.KhachHangThanThiet();
+            banTab.Dock = DockStyle.Fill;
+            tabPage1.Controls.Add(KhachHangThanThietTab);
+            tabPage1.Text = "Khách hàng thân thiết";
         }
 
         private void Manager_Load(object sender, EventArgs e)
@@ -61,6 +71,11 @@ namespace QuanCafe.Forms
         }
 
         private void Manager_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
         {
 
         }

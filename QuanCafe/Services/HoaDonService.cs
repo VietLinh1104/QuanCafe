@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using QuanCafe.Data;
+using QuanCafe.Models;
 
 namespace QuanCafe.Services
 {
-    class HoaDonService
+    public class HoaDonService
     {
         private readonly ConnectDB _db;
 
@@ -16,27 +14,28 @@ namespace QuanCafe.Services
         {
             _db = new ConnectDB();
         }
-        public int InsertHoaDon(int idBan, int idNhanVien, int? idKhachHang, int trangThai)
+
+        public int InsertHoaDon(HoaDon hoaDon)
         {
             using (SqlConnection conn = _db.GetConnection())
             {
                 conn.Open();
                 string query = @"
             INSERT INTO HoaDon (id_ban, id_nhan_vien, id_khach_hang, trang_thai)
-            VALUES (@id_ban, @id_nhan_vien, @id_khach_hang, @trang_thai);
-            SELECT CAST(SCOPE_IDENTITY() AS INT)";
+            VALUES (@idBan, @idNhanVien, @idKhachHang, @trangThai);
+            SELECT CAST(SCOPE_IDENTITY() as int);";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@id_ban", idBan);
-                    cmd.Parameters.AddWithValue("@id_nhan_vien", idNhanVien);
-                    cmd.Parameters.AddWithValue("@id_khach_hang", (object)idKhachHang ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@trang_thai", trangThai);
-
-                    object result = cmd.ExecuteScalar();
-                    return result != null ? Convert.ToInt32(result) : -1;
+                    cmd.Parameters.AddWithValue("@idBan", hoaDon.IdBan);
+                    cmd.Parameters.AddWithValue("@idNhanVien", hoaDon.IdNhanVien);
+                    cmd.Parameters.AddWithValue("@idKhachHang", (object)hoaDon.IdKhachHang ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@trangThai", hoaDon.TrangThai);
+                                        return (int)cmd.ExecuteScalar(); // Lấy id vừa insert
                 }
             }
         }
+
+
     }
 }

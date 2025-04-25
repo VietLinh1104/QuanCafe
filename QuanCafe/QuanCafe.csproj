@@ -48,6 +48,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -85,6 +94,14 @@
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=8.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.8.8.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -116,9 +133,34 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ConnectDB.cs" />
+    <Compile Include="Forms\ManagerTab\Tab\DoanhThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagerTab\Tab\DoanhThu.Designer.cs">
+      <DependentUpon>DoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagerTab\Tab\KhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagerTab\Tab\KhachHang.Designer.cs">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagerTab\Tab\KhachHangThanThiet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagerTab\Tab\KhachHangThanThiet.Designer.cs">
+      <DependentUpon>KhachHangThanThiet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagerTab\Tab\SanPhamForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagerTab\Tab\SanPhamForm.Designer.cs">
+      <DependentUpon>SanPhamForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,12 +185,6 @@
     <Compile Include="Forms\ManagerTab\Tab\DanhMuc.Designer.cs">
       <DependentUpon>DanhMuc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ManagerTab\Tab\SanPham.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\ManagerTab\Tab\SanPham.Designer.cs">
-      <DependentUpon>SanPham.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ManagerTab\Tab\TaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +203,8 @@
     <Compile Include="Forms\ManagerTab\Tab\Ban.Designer.cs">
       <DependentUpon>Ban.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DataConvertHelper.cs" />
+    <Compile Include="Helpers\ExportHelper.cs" />
     <Compile Include="Helpers\JwtHelper.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="Helpers\ValidateHelper.cs" />
@@ -183,10 +221,24 @@
     <Compile Include="Services\BanService.cs" />
     <Compile Include="Services\ChiTietHoaDonService.cs" />
     <Compile Include="Services\DanhMucService.cs" />
+    <Compile Include="Services\DoanhThuService.cs" />
     <Compile Include="Services\HoaDonService.cs" />
     <Compile Include="Services\KhachHangService.cs" />
     <Compile Include="Services\NhanVienService.cs" />
     <Compile Include="Services\SanPhamService.cs" />
+    <Compile Include="Services\ThongKeService.cs" />
+    <EmbeddedResource Include="Forms\ManagerTab\Tab\DoanhThu.resx">
+      <DependentUpon>DoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagerTab\Tab\KhachHang.resx">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagerTab\Tab\KhachHangThanThiet.resx">
+      <DependentUpon>KhachHangThanThiet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagerTab\Tab\SanPhamForm.resx">
+      <DependentUpon>SanPhamForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TaiKhoan.resx">
       <DependentUpon>TaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,9 +250,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagerTab\Tab\DanhMuc.resx">
       <DependentUpon>DanhMuc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ManagerTab\Tab\SanPham.resx">
-      <DependentUpon>SanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagerTab\Tab\TaiKhoan.resx">
       <DependentUpon>TaiKhoan.cs</DependentUpon>

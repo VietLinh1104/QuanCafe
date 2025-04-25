@@ -132,3 +132,4 @@ SELECT * FROM KhachHang;
 SELECT * FROM SanPham;
 SELECT * FROM HoaDon;
 SELECT * FROM ChiTietHoaDon;
+
